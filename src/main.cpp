@@ -26,6 +26,8 @@ void setup()
 
 void loop() 
 {
+  watchdogUpdate();
+
   #ifdef COMMU_H
     #ifdef RUN_MODE
       commu_run();
