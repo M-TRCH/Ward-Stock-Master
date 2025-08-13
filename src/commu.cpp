@@ -92,6 +92,9 @@ void commu_run()
                 if (bus.readData(ADDR_LATCH_CONTROL) == DATA_CMD_LATCH_UNLOCK)      latch(LATCH_UNLOCK);
                 else if (bus.readData(ADDR_LATCH_CONTROL) == DATA_CMD_LATCH_LOCK)   latch(LATCH_LOCK);
                 break;
+
+            default:
+                break;
         }
     }    
 }

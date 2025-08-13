@@ -7,17 +7,17 @@
 #include "watchdog.h"
 
 // Constants definitions
-#define LIFE_MOVE_TIMEOUT       8000U   // Timeout for moving in milliseconds
-#define LIFE_HOMING_TIMEOUT     10000U  // Timeout for homing in milliseconds
-#define LIFE_HOME_SPD           -140U   // Speed for homing
-#define LIFT_HOLD_SPD           0U      // Hold speed
-#define LIFT_UP_SPD             255U    // Up speed
-#define LIFT_UP_SOFT_SPD        230U    // Soft up speed
-#define LIFT_DOWN_SPD           -200U   // Down speed
-#define LIFT_DOWN_SOFT_SPD      -180U    // Soft down speed
-#define SOFT_PERCENT            10.0f   // Soft percentage between 0 and 100 for travel distance
-#define PULSE_EXPERIMENT        800.0f   // Pulse experiment value
-#define DIS_MEASURE             1058.0f  // Distance measurement in mm
+#define LIFE_MOVE_TIMEOUT       8000U       // Timeout for moving in milliseconds
+#define LIFE_HOMING_TIMEOUT     10000U      // Timeout for homing in milliseconds
+#define LIFE_HOME_SPD           -140        // Speed for homing
+#define LIFT_HOLD_SPD           0           // Hold speed
+#define LIFT_UP_SPD             255         // Up speed
+#define LIFT_UP_SOFT_SPD        230         // Soft up speed
+#define LIFT_DOWN_SPD           -200        // Down speed
+#define LIFT_DOWN_SOFT_SPD      -180        // Soft down speed
+#define SOFT_PERCENT            10.0f       // Soft percentage between 0 and 100 for travel distance
+#define PULSE_EXPERIMENT        800.0f      // Pulse experiment value
+#define DIS_MEASURE             1058.0f     // Distance measurement in mm
 #define DIS_TO_PULSE            (PULSE_EXPERIMENT / DIS_MEASURE)
 
 // Volatile variables

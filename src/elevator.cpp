@@ -30,7 +30,7 @@ void elevator_homing(int timeout)
             drive(DRIVE_LIFT, LIFT_HOLD_SPD);
             break;
         }
-        }
+    }
 
     drive(DRIVE_LIFT, LIFT_HOLD_SPD);
     // Reset variables

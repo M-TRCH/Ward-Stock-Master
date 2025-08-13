@@ -98,29 +98,32 @@ int LGSbus::read(int id, int addr, int timeout, int cnt_max)
 
 int LGSbus::poll()
 {
-  if (SR->find('#'))
+  if (SR->available())
   {
-    int id      = SR->parseInt();
-    int type    = SR->parseInt();
-    int addr    = SR->parseInt();
-    int data    = SR->parseInt();
-    int sum     = SR->parseInt();
-    int sum_cal = id + type + addr + data; 
-    
-    if (id==ID && sum_cal==sum)
+    if (SR->find('#'))
     {
-      addr = constrain(addr, 0, DATA_BUF_SIZE-1);
-      LAST_ADDR = addr;
-      if (type == WRITE_TYPE) DATA_BUF[addr] = data;
+      int id      = SR->parseInt();
+      int type    = SR->parseInt();
+      int addr    = SR->parseInt();
+      int data    = SR->parseInt();
+      int sum     = SR->parseInt();
+      int sum_cal = id + type + addr + data; 
+      
+      if (id==ID && sum_cal==sum)
+      {
+        addr = constrain(addr, 0, DATA_BUF_SIZE-1);
+        LAST_ADDR = addr;
+        if (type == WRITE_TYPE) DATA_BUF[addr] = data;
 
-      delay(5);
-      SR->write('&');
-      SR->println(id);
-      SR->println(RETURN_TYPE);
-      SR->println(addr);
-      SR->println(DATA_BUF[addr]);
-      SR->println(id + RETURN_TYPE + addr + DATA_BUF[addr]);  
-      return 1;
+        delay(5);
+        SR->write('&');
+        SR->println(id);
+        SR->println(RETURN_TYPE);
+        SR->println(addr);
+        SR->println(DATA_BUF[addr]);
+        SR->println(id + RETURN_TYPE + addr + DATA_BUF[addr]);  
+        return 1;
+      }
     }
   }
   return 0; // not responde or packet incorrect
